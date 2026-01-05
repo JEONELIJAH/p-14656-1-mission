@@ -18,6 +18,7 @@ public class BaseInitData {
     public ApplicationRunner baseInitDataRunner() {
         return args -> {
             work1();
+            work2();
         };
     }
 
@@ -32,5 +33,12 @@ public class BaseInitData {
             }
         }
         log.debug("Post entity 개수: {}", postService.count());
+    }
+
+    private void work2(){
+        log.debug("기존 Post 전체 조회");
+        for (Post post : postService.findAll()) {
+            log.debug("Existing Post: {}", post);
+        }
     }
 }
